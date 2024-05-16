@@ -15,15 +15,14 @@ class ServerGUI:
 
         # Layout
         layout = [
-            [sg.Text('Logs', font=('Helvetica', 24, 'bold'))],
-            [sg.Multiline("", size=(60, 10), key='-LOG-', autoscroll=True, disabled=True, reroute_cprint=True, font=('Helvetica', 12))],
-            [sg.Text('Requests', font=('Helvetica', 24, 'bold'))],
-            [sg.Multiline(size=(60, 10), key='-REQUEST_LOG-', disabled=True, autoscroll=True, font=('Helvetica', 12))],
-            [sg.InputText(key='-COMMAND-', size=(40, 1), font=('Helvetica', 12)), sg.Button('Send Command', key='-SEND_COMMAND-', font=('Helvetica', 10))],
-            [sg.Button('Start Server', key='-START_SERVER-', font=('Helvetica', 10)),
-             sg.Button('Stop Server', key='-STOP_SERVER-', font=('Helvetica', 10))]
+            [sg.Text('Logs', font=('Courier New', 26, 'bold'), text_color='purple', background_color='black')],
+            [sg.Multiline("", size=(70, 15), key='-LOG-', autoscroll=True, disabled=True, reroute_cprint=True, font=('Courier New', 14), background_color='black', text_color='white')],
+            [sg.Text('Requests', font=('Courier New', 26, 'bold'), text_color='purple', background_color='black')],
+            [sg.Multiline(size=(70, 15), key='-REQUEST_LOG-', disabled=True, autoscroll=True, font=('Courier New', 14), background_color='black', text_color='white')],
+            [sg.InputText(key='-COMMAND-', size=(50, 1), font=('Courier New', 14), background_color='black', text_color='white'), sg.Button('Send Command', key='-SEND_COMMAND-', font=('Courier New', 12), button_color=('black', 'orange'))],
+            [sg.Button('Start Server', key='-START_SERVER-', font=('Courier New', 12), button_color=('black', 'green')),
+             sg.Button('Stop Server', key='-STOP_SERVER-', font=('Courier New', 12), button_color=('black', 'red'))]
         ]
-
         self.window = sg.Window('P2P Server GUI', layout, finalize=True)
         
     def start_server(self):

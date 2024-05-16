@@ -10,15 +10,15 @@ class FileClientGUI:
         self.client = FileClient(log_callback=self.log)
 
         self.layout = [
-            [sg.Text("File client GUI", font=("Helvetica", 16)), sg.Text("My Repository", key="-REPO_TEXT-", font=("Helvetica", 16), pad=(440, 0), visible=False)],
-            [sg.Multiline("", key="-OUTPUT-", font=("Helvetica", 14), size=(50, 20), autoscroll=True, reroute_cprint=True, disabled=True), sg.Multiline("", key="-REPO-", font=("Helvetica", 14), size=(50, 20), disabled=True, visible=False)],
-            [sg.Text("Host name:", key="-HN_TEXT-", font=("Helvetica", 12)), sg.InputText(key="-HOSTNAME-", size=(40, 1)), sg.Button("Connect", key="-CONNECT_BUTTON-")],
-            [sg.Text("Command:", key="-COMMAND_TEXT-", font=("Helvetica", 12), visible=False), sg.InputText(key="-COMMAND-", size=(40, 1), visible=False), sg.Button("Send Command", key="-COMMAND_BUTTON-", visible=False)],
-            [sg.Text("Upload File:", key="-UPLOAD_TEXT-", font=("Helvetica", 12), visible=False), sg.InputText(key="-FILE_PATH-", size=(40, 1), visible=False),
-             sg.FileBrowse(key="-BROWSE-", visible=False)],
-                [sg.Text("File Name:", key="-FN_TEXT-", font=("Helvetica", 12), visible=False), sg.InputText(key="-FILE_NAME-", size=(40, 1), visible=False),
-                sg.Button("Publish", key="-PUBLISH-", visible=False)],
-            [ sg.Button("Quit")]
+            [sg.Text("File client GUI", font=("Courier New", 26, 'bold'), text_color='purple', background_color='black'), sg.Text("My Repository", key="-REPO_TEXT-", font=("Courier New", 26, 'bold'), pad=(440, 0), visible=False, text_color='purple', background_color='black')],
+            [sg.Multiline("", key="-OUTPUT-", font=("Courier New", 18), size=(70, 30), autoscroll=True, reroute_cprint=True, disabled=True, background_color="black", text_color="white"), sg.Multiline("", key="-REPO-", font=("Courier New", 18), size=(70, 30), disabled=True, visible=False, background_color="black", text_color="white")],
+            [sg.Text("Host name:", key="-HN_TEXT-", font=("Courier New", 16), text_color="orange", background_color='black'), sg.InputText(key="-HOSTNAME-", size=(60, 1), background_color='black', text_color='white'), sg.Button("Connect", key="-CONNECT_BUTTON-", button_color=("black", "green"))],
+            [sg.Text("Command:", key="-COMMAND_TEXT-", font=("Courier New", 16), visible=False, text_color="orange", background_color='black'), sg.InputText(key="-COMMAND-", size=(60, 1), visible=False, background_color='black', text_color='white'), sg.Button("Send Command", key="-COMMAND_BUTTON-", visible=False, button_color=("black", "green"))],
+            [sg.Text("Upload File:", key="-UPLOAD_TEXT-", font=("Courier New", 16), visible=False, text_color="orange", background_color='black'), sg.InputText(key="-FILE_PATH-", size=(60, 1), visible=False, background_color='black', text_color='white'),
+            sg.FileBrowse(key="-BROWSE-", visible=False)],
+            [sg.Text("File Name:", key="-FN_TEXT-", font=("Courier New", 16), visible=False, text_color="orange", background_color='black'), sg.InputText(key="-FILE_NAME-", size=(60, 1), visible=False, background_color='black', text_color='white'),
+            sg.Button("Publish", key="-PUBLISH-", visible=False, button_color=("black", "green"))],
+            [sg.Button("Quit", button_color=("black", "red"))]
         ]
 
         self.window = sg.Window("File Client GUI", self.layout, finalize=True)
